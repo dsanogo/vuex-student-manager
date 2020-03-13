@@ -1,28 +1,30 @@
-import Vue from 'vue'
-import Veutify from 'vuetify'
-import App from './App.vue'
-import 'vuetify/dist/vuetify.min.css'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import Veutify from "vuetify";
+import App from "./App.vue";
+import "vuetify/dist/vuetify.min.css";
+import VueRouter from "vue-router";
+
+import store from "./store";
 
 import NewStudent from "./components/NewStudent";
 import Students from "./components/Students";
 import EditStudent from "./components/EditStudent";
 
 Vue.use(Veutify);
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", component: Students},
-  { path: "/NewStudent", component: NewStudent},
-  { path: "/EditStudent/:id", component: EditStudent},
-]
+  { path: "/", component: Students },
+  { path: "/NewStudent", component: NewStudent },
+  { path: "/EditStudent/:id", component: EditStudent }
+];
 
-const router = new VueRouter({routes, mode: 'history'})
-
+const router = new VueRouter({ routes, mode: "history" });
 
 new Vue({
+  store,
   router,
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(App)
+}).$mount("#app");
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
